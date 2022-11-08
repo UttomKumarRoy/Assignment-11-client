@@ -27,12 +27,6 @@ const Navbar = () => {
                 </Link>
                 </div>
                 <div>
-                <Link className='mx-2 text-decoration-none' to='/courses'>
-                    Services
-                </Link>
-                </div>
-                
-                <div>
                 <Link className='mx-2 text-decoration-none' to='/blog'>
                     Blog
                 </Link>
@@ -43,7 +37,11 @@ const Navbar = () => {
                   </div>
                 <div>
                     {
-                    user? (<div className='d-flex justify-content-between align-items-center'><Link className='mx-2 text-decoration-none' to='review'>Review</Link><Link className='mx-2 text-decoration-none' to='addService'>Add Service</Link><Link onClick={handleLogout} className='mx-2 text-decoration-none' to='/'>Logout</Link></div>):<Link className='mx-2 text-decoration-none' to='/login'>
+                    user? (<div className='d-flex justify-content-between align-items-center'>
+                        <Link className='mx-2 text-decoration-none' to='review'>Review</Link>
+                        <Link className='mx-2 text-decoration-none' to='addService'>Add_Service</Link>
+                        <Link onClick={handleLogout} className='mx-2 text-decoration-none' to='/'>Logout</Link>
+                        </div>) : <Link className='mx-2 text-decoration-none' to='/login'>
                     Login
                </Link>
 

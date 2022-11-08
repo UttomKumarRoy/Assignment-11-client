@@ -8,6 +8,7 @@ import Main from '../layout/Main'
 import Courses from '../components/Services'
 import Blog from '../components/Blog'
 import CourseDetails from '../components/CourseDetails'
+import AddService from '../components/AddService'
 
 
 const router = createBrowserRouter([
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
         path: '/services',
         element: <Courses />,
         loader: () => fetch('http://localhost:5000/services')
+      },
+      {
+        path: '/addService',
+        element: <AddService></AddService>
       },
       {
         path: '/courses/:id',
