@@ -5,7 +5,7 @@ import Login from '../components/Login'
 import Register from '../components/Register'
 import Main from '../layout/Main'
 //import PrivateRoute from './PrivateRoute'
-import Courses from '../components/Courses'
+import Courses from '../components/Services'
 import Blog from '../components/Blog'
 import CourseDetails from '../components/CourseDetails'
 
@@ -22,9 +22,9 @@ const router = createBrowserRouter([
       },
       
       {
-        path: '/courses',
+        path: '/services',
         element: <Courses />,
-        loader: () => fetch('https://programming-language-server.vercel.app/course')
+        loader: () => fetch('http://localhost:5000/services')
       },
       {
         path: '/courses/:id',
