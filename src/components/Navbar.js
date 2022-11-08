@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {Link} from 'react-router-dom'
+import { AuthContext } from '../contexts/UserContext';
 
 
 const Navbar = () => {
-   
+   const{user, logout, loading}=useContext(AuthContext)
 
-   
+   console.log(user,logout, loading);
+
+   const handleLogout=()=>{
+     logout()
+   }
     
     const image=require('./logo.jpg');
     
@@ -16,7 +21,7 @@ const Navbar = () => {
                 <h1 className='text-success'>Youtube Hunter</h1>
             </div>
             <div className='d-flex justify-content-between align-items-center'>
-            <div>
+                 <div>
                 <Link className='mx-2 text-decoration-none' to='/'>
                     Home
                 </Link>
@@ -34,11 +39,16 @@ const Navbar = () => {
                 </div>
                
                 <div>    
-                 <Link className='mx-2 text-decoration-none' to='/login'>
-                     Login
-                </Link>
+                 
                   </div>
-                
+                <div>
+                    {
+                    user? (<div className='d-flex justify-content-between align-items-center'><Link className='mx-2 text-decoration-none' to='review'>Review</Link><Link className='mx-2 text-decoration-none' to='addService'>Add Service</Link><Link onClick={handleLogout} className='mx-2 text-decoration-none' to='/'>Logout</Link></div>):<Link className='mx-2 text-decoration-none' to='/login'>
+                    Login
+               </Link>
+
+                    }
+                </div>
                 
                
                

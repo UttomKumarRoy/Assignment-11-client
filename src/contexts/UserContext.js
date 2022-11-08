@@ -47,7 +47,7 @@ import {
     // 4. Logout
     const logout = () => {
       setLoading(true)
-      return signOut(auth.currentUser)
+      return signOut(auth)
     }
   
     //5. Login with Password
