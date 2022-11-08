@@ -8,7 +8,7 @@ const Register = () => {
   const navigate = useNavigate()
   const location = useLocation()
   const from = location.state?.from?.pathname || '/'
-  const { createUser, updateName,  signInWithGoogle, signInWithGithub } =
+  const { createUser, updateName,  signInWithGoogle } =
     useContext(AuthContext)
 
   // Signup using Email & Pass
@@ -48,12 +48,7 @@ const Register = () => {
     })
   }
 
-  const handleGithubSignin = () => {
-    signInWithGithub().then(result => {
-      console.log(result.user)
-      navigate(from, { replace: true })
-    })
-  }
+  
 
   return (
     <div className='text-center border-5 bg-dark text-white'>
@@ -135,9 +130,7 @@ const Register = () => {
             Google
           </button> 
           
-          <button onClick={handleGithubSignin} aria-label='Log in with GitHub' className=''>
-           Github
-          </button>
+         
         
         <p className=''>
           Already have an account yet?{' '}

@@ -6,12 +6,11 @@ import { AuthContext } from '../contexts/UserContext'
 const Login = () => {
   
   const [err, setErr]=useState('')
-  // const [showPass, setShowPass] = useState(false)
   const navigate = useNavigate()
   const location = useLocation()
   const from = location.state?.from?.pathname || '/'
 
-  const { signin,  signInWithGoogle, signInWithGithub } = useContext(AuthContext)
+  const { signin,  signInWithGoogle } = useContext(AuthContext)
 
   const handleSubmit = event => {
     event.preventDefault()
@@ -39,12 +38,7 @@ const Login = () => {
     })
   }
 
-  const handleGoogleGithub = () => {
-    signInWithGithub().then(result => {
-      console.log(result.user)
-      navigate(from, { replace: true })
-    })
-  }
+  
   
 
   return (
@@ -110,9 +104,7 @@ const Login = () => {
            Google
           </button>
           
-          <button onClick={handleGoogleGithub} aria-label='Log in with GitHub' className=''>
-            Github
-          </button>
+          
         </div>
         <p className=''>
           Don't have an account yet?{' '}
