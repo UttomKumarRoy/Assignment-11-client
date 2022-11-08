@@ -16,6 +16,11 @@ const Navbar = () => {
                 <h1 className='text-success'>Youtube Hunter</h1>
             </div>
             <div className='d-flex justify-content-between align-items-center'>
+            <div>
+                <Link className='mx-2 text-decoration-none' to='/'>
+                    Home
+                </Link>
+                </div>
                 <div>
                 <Link className='mx-2 text-decoration-none' to='/courses'>
                     Services

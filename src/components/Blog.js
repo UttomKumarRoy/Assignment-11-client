@@ -5,34 +5,22 @@ const Blog = () => {
         <div> <br />
             <h2 className='text-white text-center bg-secondary rounded-5 p-3'>Please read this blog</h2> <br /> <br />
              <div className='bg-dark text-white p-2 rounded-3'>
-                <h3>1. What is cors?</h3>
-                <p>Cross-origin resource sharing (CORS) is a browser mechanism which enables controlled access to resources located outside of a given domain. It extends and adds flexibility to the same-origin policy (SOP). However, it also provides potential for cross-domain attacks, if a website's CORS policy is poorly configured and implemented. CORS is not a protection against cross-origin attacks such as cross-site request forgery (CSRF). </p>
+                <h3>1. What are the differences between SQL and NoSQL?</h3>
+                <p> SQL is the programming language used to interface with relational databases. (Relational databases model data as records in rows and tables with logical links between them).A SQL Database follows a table like structure which can have an unlimited number of rows and every data present inside the database is properly structured with Predefined Schemas, it is basically used to manipulate Relational Databases Management Systems. NoSQL is a class of DBMs that are non-relational and generally do not use SQL.A NoSQL Database is a Distributed Database where the data is very unstructured with Dynamic Schema. Unlike SQL it cannot have unlimited rows but it follows a Standard Schema Definition and can store all sorts of data models with large distributed data in the form of key-value pairs, graph databases, documents or wide-column stores. </p>
             </div> <br />
             <div className='bg-dark text-white p-2 rounded-3'>
-                <h3>2. Why are you using firebase? What other options do you have to implement authentication?</h3>
-                <p>
-                    We use firebase for these purposes <br />   
-                    1. Cloud Messaging: Deliver and receive messages in a more reliable way across platforms <br />
-                    2. Authentication: Have a lot less friction with acclaimed authentication <br />
-                    3. Hosting: Deliver web content faster <br />
-                    4. Remote Configuration: Customize your app on the go <br />
-                    5. Test Lab: Test in the lab instead of on your users <br />
-                    6. Crash Reporting: Keep your app stable <br />
-                    7. Realtime Database: Store and sync app data in realtime <br />
-                    8. Storage: File storing made easy <br />
-
-                    Usually, authentication by a server entails the use of a user name and password. Other ways to authenticate can be through cards, retina scans, voice recognition, and fingerprints.</p>
+                <h3>2. What is JWT and how does it work?</h3>
+                <p>JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. This information can be verified and trusted because it is digitally signed. JWTs can be signed using a secret (with the HMAC algorithm) or a public/private key pair using RSA or ECDSA. <br />
+                JSON Web Token (JWT) is an open standard (RFC 7519) for securely transmitting information between parties as JSON object.It is compact, readable and digitally signed using a private key/ or a public key pair by the Identity Provider(IdP). So the integrity and authenticity of the token can be verified by other parties involved.The purpose of using JWT is not to hide data but to ensure the authenticity of the data. JWT is signed and encoded, not encrypted. JWT is a token based stateless authentication mechanism. Since it is a client-side based stateless session, server doesn't have to completely rely on a datastore(database) to save session information.
+                </p>
             </div> <br />
             <div className='bg-dark text-white p-2 rounded-3'>
-                <h3>3. How does the private route work?</h3>
-                <p>The react private route component renders child components ( children ) if the user is logged in. If not logged in the user is redirected to the /login page with the return url passed in the location state property.</p>
+                <h3>3. What is the difference between javascript and NodeJS?</h3>
+                <p>JavaScript is a simple programming language that can be used with any browser that has the JavaScript Engine installed. Node. js, on the other hand, is an interpreter or execution environment for the JavaScript programming language.</p>
             </div> <br />
             <div className='bg-dark text-white p-2 rounded-3'>
-                <h3>3. What is Node? How does Node work?</h3>
-                <p>
-                    Node.js is an open source server environment. Node.js is free. Node.js runs on various platforms (Windows, Linux, Unix, Mac OS X, etc.). Node.js uses JavaScript on the server. <br />
-                    It is a used as backend service where javascript works on the server-side of the application. This way javascript is used on both frontend and backend. Node. js runs on chrome v8 engine which converts javascript code into machine code, it is highly scalable, lightweight, fast, and data-intensive.
-</p>
+                <h3>4. How does NodeJS handle multiple requests at the same time?</h3>
+                <p>NodeJS receives multiple client requests and places them into EventQueue. NodeJS is built with the concept of event-driven architecture. NodeJS has its own EventLoop which is an infinite loop that receives requests and processes them.</p>
             </div> <br />
         </div>
     );
