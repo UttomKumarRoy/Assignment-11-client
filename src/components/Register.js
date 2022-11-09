@@ -32,7 +32,6 @@ const Register = () => {
             toast.success('Name and Photo Updated')
             
 
-            
           })
           .catch(error => {
           console.log(error);
@@ -45,6 +44,7 @@ const Register = () => {
   const handleGoogleSignin = () => {
     signInWithGoogle().then(result => {
       console.log(result.user)
+
       navigate(from, { replace: true })
     })
   }

@@ -7,8 +7,9 @@ import Main from '../layout/Main'
 import PrivateRoute from './PrivateRoute'
 import Courses from '../components/Services'
 import Blog from '../components/Blog'
-import CourseDetails from '../components/CourseDetails'
 import AddService from '../components/AddService'
+import ServiceDetails from '../components/ServiceDetails'
+import MyReview from '../components/MyReview'
 
 
 const router = createBrowserRouter([
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />,
+        loader: () => fetch('https://youtuber-server.vercel.app/services3')
       },
       
       {
@@ -29,11 +31,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/addService',
-        element: <PrivateRoute><AddService></AddService></PrivateRoute>
+        element: <PrivateRoute><AddService /></PrivateRoute>
       },
       {
         path: '/services/:id',
-        element: <CourseDetails />,
+        element: <ServiceDetails />,
         loader: ({params}) => fetch(`https://youtuber-server.vercel.app/services/${params.id}`)
       },
       {
@@ -48,6 +50,10 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register />,
+      },
+      {
+        path: '/review',
+        element: <PrivateRoute><MyReview /></PrivateRoute>,
       },
       //{
       //  path: '/checkout/:id',

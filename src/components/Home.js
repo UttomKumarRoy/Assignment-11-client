@@ -1,16 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { Link, useLoaderData } from 'react-router-dom';
 import Service from './Service';
 import useTitle from './useTitle';
 
 const Home = () => {
-    const [services, setServices]=useState([])
-    useEffect(()=>{
-        fetch('https://youtuber-server.vercel.app/services3')
-        .then(res=>res.json())
-        .then(data=>setServices(data))
-        .catch(err=>console.log(err))
-    },[])
+    const services=useLoaderData()
+   
     useTitle('Home')
     return (
         <div>
