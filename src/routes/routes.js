@@ -32,9 +32,9 @@ const router = createBrowserRouter([
         element: <PrivateRoute><AddService></AddService></PrivateRoute>
       },
       {
-        path: '/courses/:id',
+        path: '/services/:id',
         element: <CourseDetails />,
-        loader: ({params}) => fetch(`https://programming-language-server.vercel.app/course/${params.id}`)
+        loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
       },
       {
         path: '/blog',
