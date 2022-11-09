@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Service from './Service';
+import useTitle from './useTitle';
 
 const Home = () => {
     const [services, setServices]=useState([])
@@ -10,6 +11,7 @@ const Home = () => {
         .then(data=>setServices(data))
         .catch(err=>console.log(err))
     },[])
+    useTitle('Home')
     return (
         <div>
             <div id="demo" className="carousel slide bg-dark" data-bs-ride="carousel">

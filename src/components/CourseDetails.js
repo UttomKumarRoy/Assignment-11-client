@@ -1,11 +1,14 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import useTitle from './useTitle';
 
 
 const CourseDetails = () => {
     
     const course=useLoaderData();
    const {_id, name, image, description, price}=course
+
+   useTitle('Service Details')
     return (
         <div>
            

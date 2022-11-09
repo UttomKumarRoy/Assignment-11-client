@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
+import useTitle from './useTitle';
 
 const AddService = () => {
     const [service, setService] = useState({});
@@ -32,7 +33,7 @@ const AddService = () => {
         newService[field] = value;
         setService(newService);
     }
-
+useTitle('Add Service')
     return (
         <div>
             <h2>Please add a new Service</h2>

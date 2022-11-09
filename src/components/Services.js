@@ -1,10 +1,12 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Service from './Service';
+import useTitle from './useTitle';
 
 const Services = () => {
    const courses= useLoaderData();
 //   const [id, name, price, image, description]=courses;
+useTitle('Services')
     return (
         <div className='row'>
            

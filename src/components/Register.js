@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 import { toast } from 'react-toastify'
 import { AuthContext } from '../contexts/UserContext'
+import useTitle from './useTitle'
 
 const Register = () => {
   const navigate = useNavigate()
@@ -49,7 +50,7 @@ const Register = () => {
   }
 
   
-
+useTitle('Register')
   return (
     <div className='text-center border-5 bg-dark text-white'>
       

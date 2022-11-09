@@ -1,8 +1,10 @@
 import React from 'react'
 import { useRouteError } from 'react-router-dom'
+import useTitle from './useTitle'
 
 const ErrorPage = () => {
   const error = useRouteError()
+  useTitle('Error')
   return (
     <>
       <div className='text-center border'>

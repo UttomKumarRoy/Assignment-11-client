@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useTitle from './useTitle';
 
 const Service = (props) => {
     const {_id, name, image, price, description}=props.course;
+    useTitle('Service')
     return (
         <div style={{border:"2px solid green"}} className='col-sm-12 col-md-6 col-lg-4 g-3'>
             <h4>Service Name: {name}</h4>
