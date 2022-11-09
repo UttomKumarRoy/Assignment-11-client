@@ -4,7 +4,7 @@ import Home from '../components/Home'
 import Login from '../components/Login'
 import Register from '../components/Register'
 import Main from '../layout/Main'
-//import PrivateRoute from './PrivateRoute'
+import PrivateRoute from './PrivateRoute'
 import Courses from '../components/Services'
 import Blog from '../components/Blog'
 import CourseDetails from '../components/CourseDetails'
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/addService',
-        element: <AddService></AddService>
+        element: <PrivateRoute><AddService></AddService></PrivateRoute>
       },
       {
         path: '/courses/:id',

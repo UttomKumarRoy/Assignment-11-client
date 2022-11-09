@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 
 const AddService = () => {
     const [service, setService] = useState({});
@@ -18,7 +19,7 @@ const AddService = () => {
         .then(res => res.json())
         .then(data => {
             if(data.acknowledged){
-                alert('Service added successfully');
+                toast.success('Service added successfully');
                 event.target.reset();
             }
         })
