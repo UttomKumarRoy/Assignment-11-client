@@ -25,7 +25,7 @@ const Home = () => {
             <h3 className='text-center bg-secondary text-white p-2 rounded-1'>Our Services</h3> <br />
             <div className='row d-flex justify-content-between align-items-center'>
             {
-                services.map(service=><Service key={service._id} course={service}></Service>)
+                services.map(service=><Service key={service._id} service={service}></Service>)
             }
             </div> <br />
             <div className='text-center'>

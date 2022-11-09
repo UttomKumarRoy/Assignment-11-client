@@ -11,7 +11,6 @@ import AddService from '../components/AddService'
 import ServiceDetails from '../components/ServiceDetails'
 import MyReview from '../components/MyReview'
 
-
 const router = createBrowserRouter([
   {
     path: '/',
@@ -55,15 +54,6 @@ const router = createBrowserRouter([
         path: '/review',
         element: <PrivateRoute><MyReview /></PrivateRoute>,
       },
-      //{
-      //  path: '/checkout/:id',
-      //  element: (
-      //    <PrivateRoute>
-      //      <CheckOut />
-      //    </PrivateRoute>
-      //  ),
-      //  loader: ({params}) => fetch(`https://programming-language-server.vercel.app/course/${params.id}`)
-      //},
       
     ],
   },

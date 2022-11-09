@@ -10,7 +10,7 @@ const ServiceDetails = () => {
    const [reviews,setReviews]= useState({})
     const {user}=useContext(AuthContext);
     const service=useLoaderData();
-   const {_id, name, image, description, price}=service
+   const {_id, serviceName, image, description, price}=service
 console.log(_id);
 useEffect(() => {
     fetch(`https://youtuber-server.vercel.app/reviews/${_id}`)
@@ -29,13 +29,15 @@ useEffect(() => {
     const photoURL=user.photoURL;
     const text = form.review.value;
     const serviceId=`${_id}`
-
+    const sName=`${serviceName}`
+    console.log(serviceName);
     const review = {
         name,
         email,
         photoURL,
         text,
-        serviceId
+        serviceId,
+        serviceName:sName
     }
 
     
@@ -64,7 +66,7 @@ useEffect(() => {
         <div>
             <div>
                 <h2 className='bg-primary text-white p-2 rounded-2 text-center'>Service Details Section</h2>
-                <h3>Service Name: {name}</h3>
+                <h3>Service Name: {serviceName}</h3>
                 <img height={200} className='img-sm ' src={image} alt="this is pic" />
                 <p>Service Description: {description}</p>
                 <p>Service Price: {price}</p>

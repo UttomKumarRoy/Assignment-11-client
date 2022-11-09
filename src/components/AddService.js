@@ -10,7 +10,7 @@ const AddService = () => {
         event.preventDefault();
         console.log(service);
 
-        fetch('http://localhost:5000/services', {
+        fetch('https://youtuber-server.vercel.app/services', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -35,18 +35,18 @@ const AddService = () => {
     }
 useTitle('Add Service')
     return (
-        <div>
-            <h2>Please add a new Service</h2>
+        <div className='text-center'>
+            <h2 className='bg-success text-white p-2 rounded-2'>Please add a new Service</h2> <br />
             <form onSubmit={handleAddService}>
-                <input onBlur={handleInputBlur} type="text" name='name' placeholder='name' required />
+                <input onBlur={handleInputBlur} type="text" name='serviceName' placeholder='Service Name' required />
                 <br />
-                <input onBlur={handleInputBlur} type="text" name='image' placeholder='image' required />
+                <input onBlur={handleInputBlur} type="text" name='image' placeholder='Image URL' required />
                 <br />
-                <input onBlur={handleInputBlur} type="text" name='price' placeholder='price' required />
+                <input onBlur={handleInputBlur} type="text" name='price' placeholder='Service Price' required />
                 <br />
-                <input onBlur={handleInputBlur} type="text" name="description"  placeholder='description' required />
-                <br />
-                <button type="submit">Add Service</button>
+                <input onBlur={handleInputBlur} type="text" name="description"  placeholder='Service Description' required />
+                <br /> <br />
+                <button className='btn btn-primary' type="submit">Add Service</button>
             </form>
         </div>
     );
