@@ -4,7 +4,7 @@ import { toast } from 'react-toastify'
 import { AuthContext } from '../contexts/UserContext'
 import useTitle from './useTitle'
 
-const Login = () => {
+ const Login = () => {
   
   const [err, setErr]=useState('')
   const navigate = useNavigate()
@@ -21,27 +21,63 @@ const Login = () => {
 
     signin(email, password)
       .then(result => {
-        toast.success('Login Success!')
-        navigate(from, { replace: true })
-        console.log(result.user)
+        toast.success('Login Success!');
+        const user = result.user;
+        const currentUser = {
+          email: user.email
+      }
+
+      console.log(currentUser);
+
+      // get jwt token
+      fetch('https://youtuber-server.vercel.app/jwt', {
+          method: 'POST',
+          headers: {
+              'content-type': 'application/json'
+          },
+          body: JSON.stringify(currentUser)
+      }) 
+      .then(res => res.json())
+      .then(data => { 
+              console.log(data);
+              localStorage.setItem('youtube-token', data.token);
+              navigate(from, { replace: true })
       })
       .catch(error => {
-        toast.error(error.message)
-        setErr(error.message);}
-      )
+        toast.error(error.message);
+        setErr(error.message);
+      })
+  
+    }) 
   }
 
-  // Google Signin
   const handleGoogleSignIn = () => {
     signInWithGoogle().then(result => {
       console.log(result.user)
-      navigate(from, { replace: true })
-    })
-  }
 
+      toast.success('Login Success!');
+      const user = result.user;
+      const currentUser = {
+        email: user.email
+    }
+       fetch('https://youtuber-server.vercel.app/jwt', {
+          method: 'POST',
+          headers: {
+              'content-type': 'application/json'
+          },
+          body: JSON.stringify(currentUser)
+      }) 
+      .then(res => res.json())
+      .then(data => { 
+              console.log(data);
+              localStorage.setItem('youtube-token', data.token);
+          navigate(from, { replace: true })
+    })
+  })
+  }
   
-  
-useTitle('Login')
+ 
+  useTitle('Login')
   return (
     <div className='text-center border-5 bg-dark text-white'>
       
@@ -116,7 +152,7 @@ useTitle('Login')
       
     </div>
 
-  )
+  );
 }
 
-export default Login
+export default Login;

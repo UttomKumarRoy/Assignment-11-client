@@ -10,6 +10,7 @@ import Blog from '../components/Blog'
 import AddService from '../components/AddService'
 import ServiceDetails from '../components/ServiceDetails'
 import MyReview from '../components/MyReview'
+import Update from '../components/Update'
 
 const router = createBrowserRouter([
   {
@@ -41,7 +42,10 @@ const router = createBrowserRouter([
         path: '/blog',
         element: <Blog />
       },
-     
+      {
+        path: '/update',
+        element: <Update />
+      },
       {
         path: '/login',
         element: <Login />,
