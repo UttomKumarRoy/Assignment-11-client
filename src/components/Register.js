@@ -36,6 +36,7 @@ const Register = () => {
           .catch(error => {
           console.log(error);
           })
+          event.target.reset();
       })
       .catch(error => console.log(error))
   }

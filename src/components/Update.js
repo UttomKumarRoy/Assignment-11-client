@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Update = ({ id}) => {
+const Update = ({ _id}) => {
 
     const[review, setReview]=useState()
 
@@ -14,15 +14,10 @@ const Update = ({ id}) => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
-            //if(data.modifiedCount > 0) {
-            //    const remaining = reviews.filter(odr => odr._id !== id);
-            //    const approving = reviews.find(odr => odr._id === id);
-            //    approving.text = 'Approved'
-
-            //    const newOrders = [approving, ...remaining];
-            //    setReview(newOrders);
-            //}
+            if(data.modifiedCount > 0) {
+                console.log(data);
+                
+            }
         })
     }
 
@@ -37,7 +32,7 @@ const Update = ({ id}) => {
     return (
         <div>
             <h3>Update your Review</h3>
-            <form onSubmit={() => handleReviewUpdate(id)}>
+            <form onSubmit={() => handleReviewUpdate(_id)}>
                 <textarea onBlur={handleInputBlur} name="text" id="" cols="30" rows="10">Updated Text write here</textarea>
                 <input type='submit' value='Update Review'/>
             </form>

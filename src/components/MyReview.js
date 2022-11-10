@@ -6,7 +6,7 @@ import useTitle from './useTitle';
 
 const MyReview = () => {
     const[reviews,setReviews]=useState([])
-    const {user,logout}=useContext(AuthContext)
+    const {user}=useContext(AuthContext)
     useEffect(()=>{
         fetch(`https://youtuber-server.vercel.app/reviews?email=${user?.email}`,
         {
@@ -16,14 +16,14 @@ const MyReview = () => {
         }
         )
         .then(res => {
-            if (res.status === 401 || res.status === 403) {
-                return logout();
-            }
+            //if (res.status === 401 || res.status === 403) {
+            //    return logout();
+            //}
             return res.json();
         })
         .then(data => setReviews(data))
         .catch(err => console.log(err))
-    },[user?.email,logout])
+    },[user?.email])
 
     const handleDelete = id =>{
         const proceed = window.confirm('Are you sure, you want to delete this review');
@@ -43,27 +43,7 @@ const MyReview = () => {
         }
     }
     
-    //const handleReviewUpdate = id => {
-    //    fetch(`http://localhost:5000/reviews/${id}`, {
-    //        method: 'PATCH', 
-    //        headers: {
-    //            'content-type': 'application/json'
-    //        },
-    //        body: JSON.stringify({text:'Approved'})
-    //    })
-    //    .then(res => res.json())
-    //    .then(data => {
-    //        console.log(data);
-    //        if(data.modifiedCount > 0) {
-    //            const remaining = reviews.filter(odr => odr._id !== id);
-    //            const approving = reviews.find(odr => odr._id === id);
-    //            approving.text = 'Approved'
-
-    //            const newOrders = [approving, ...remaining];
-    //            setReviews(newOrders);
-    //        }
-    //    })
-    //}
+   
 
 
     useTitle('My Review')

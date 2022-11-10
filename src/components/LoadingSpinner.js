@@ -3,7 +3,9 @@ import React from 'react';
 const LoadingSpinner = () => {
     return (
         <div>
-            I am spinner
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
         </div>
     );
 };
