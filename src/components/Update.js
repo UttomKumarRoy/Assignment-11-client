@@ -5,7 +5,7 @@ const Update = ({ _id}) => {
     const[review, setReview]=useState()
 
     const handleReviewUpdate = id => {
-        fetch(`http://localhost:5000/reviews/${id}`, {
+        fetch(`https://youtuber-server.vercel.app/reviews/${id}`, {
             method: 'PATCH', 
             headers: {
                 'content-type': 'application/json'
@@ -28,12 +28,11 @@ const Update = ({ _id}) => {
         newService[field] = value;
         setReview(newService);
     }
-    //const {_id}=review
     return (
         <div>
             <h3>Update your Review</h3>
             <form onSubmit={() => handleReviewUpdate(_id)}>
-                <textarea onBlur={handleInputBlur} name="text" id="" cols="30" rows="10">Updated Text write here</textarea>
+                <textarea onBlur={handleInputBlur} name="text" id="" cols="30" rows="10">Updated Text write here</textarea> <br />
                 <input type='submit' value='Update Review'/>
             </form>
         </div>

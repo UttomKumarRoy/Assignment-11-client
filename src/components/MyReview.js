@@ -16,9 +16,7 @@ const MyReview = () => {
         }
         )
         .then(res => {
-            //if (res.status === 401 || res.status === 403) {
-            //    return logout();
-            //}
+            
             return res.json();
         })
         .then(data => setReviews(data))
