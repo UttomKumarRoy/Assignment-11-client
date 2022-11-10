@@ -14,7 +14,7 @@ const ReviewDetails = ({handleDelete,  review}) => {
             <div className='d-flex flex-column gap-5 gy-2'>
                 <Link to='/update'id={_id}  className='btn btn-success'>Edit Review</Link>
                 <button onClick={() => handleDelete(_id)} className='btn btn-danger'>Delete Review</button>
-            </div>
+            </div> <br /> 
         </div>
     );
 };

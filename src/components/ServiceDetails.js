@@ -2,12 +2,13 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../contexts/UserContext';
+import Review from './Review';
 import useTitle from './useTitle';
 
 
 
 const ServiceDetails = () => {
-   const [reviews,setReviews]= useState({})
+   const [reviews,setReviews]= useState([])
     const {user}=useContext(AuthContext);
     const service=useLoaderData();
    const {_id, serviceName, image, description, price}=service
@@ -17,14 +18,14 @@ useEffect(() => {
     .then(res => res.json())
     .then(data => setReviews(data))
     .catch(err => console.log(err))
-}, [_id])
+}, [_id,reviews])
 
    useTitle('Service Details')
    
    const handleReview = event => {
     event.preventDefault();
     const form = event.target;
-    const name = user?.name;
+    const uName = user?.name;
     const email = user?.email || 'unregistered';
     const photoURL=user.photoURL;
     const text = form.review.value;
@@ -32,7 +33,7 @@ useEffect(() => {
     const sName=`${serviceName}`
     console.log(serviceName);
     const review = {
-        name,
+        uName,
         email,
         photoURL,
         text,
@@ -76,9 +77,7 @@ useEffect(() => {
             <div>
                 <h2 className='bg-primary text-white p-2 rounded-2 text-center'>Review Section</h2>
                 {
-                    <div>
-                       Reviewer: <img className='img-fluid' style={{height:'60px'}} src={reviews?.photoURL} alt='Pic of Commenter'></img> -Comment:{reviews?.text}
-                    </div>
+                    reviews.map(review =><Review review={review} key={review._id}></Review>)
                 }
             </div>
         <div>
